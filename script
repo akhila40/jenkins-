@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('Build') {
+            steps {
+                // Your build steps here
+            }
+        }
+        stage('Push Code') {
+            steps {
+                sh 'git add .'
+                sh 'git commit -m "My commit message"'
+                sh 'git push origin my-branch'
+            }
+        }
+    }
+}
